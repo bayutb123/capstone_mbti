@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">MBTI App</string>
+
+    <string name="tv_register">Daftar Akun</string>
+    <string name="tv_q_have_account">Sudah memiliki akun?</string>
+    <string name="tv_your_personality">Kepribadian Kamu</string>
+    <string name="tv_your_mbti_type">Tipe MBTI Kamu</string>
+    <string name="tv_welcome_back">Selamat datang kembali!</string>
+    <string name="tv_welcome">Selamat Datang!</string>
+    <string name="tv_lets_login_first">Ayo Login Dulu</string>
+    <string name="tv_q_not_have_account">Belum punya akun?</string>
+    <string name="tv_recommended_learning">Rekomendasi Belajar</string>
+
+    <string name="hint_full_name">Nama lengkap</string>
+    <string name="hint_email_address">Alamat email</string>
+    <string name="hint_password_1">Kata sandi</string>
+    <string name="hint_password_2">Ketik ulang kata sandi</string>
+    <string name="hint_birth_date">Tanggal lahir</string>
+
+    <string name="rb_male">Laki-laki</string>
+    <string name="rb_female">Perempuan</string>
+
+    <string name="btn_register">Daftar</string>
+    <string name="btn_login">Masuk</string>
+    <string name="btn_retake_mbti">Ulangi Tes MBTI</string>
+    <string name="btn_logout">Keluar</string>
+
+    <string name="example_tv_personality_description">Individu yang praktis dan berpikiran fakta yang kendalanya tidak diragukan lagi. Mereka cenderung terorganisir, bertanggung jawab, dan dapat diandalkan. ISTJ memiliki ketelitian tinggi dalam menjalankan tugas-tugas yang terstruktur.</string>
+    <string name="example_tv_personality_type">Ahli Logistik</string>
+    <string name="example_tv_full_name">Bayu Tantra Bramandhita</string>
+    <string name="example_tv_mbti_type">ISTJ</string>
+    <string name="example_tv_email_address">a150dsx2099@bangkit.academy</string>
+    <string name="example_tv_recommendation">Membuat jadwal belajar terstruktur: ISTJ cenderung menghargai keteraturan dan struktur. Buat jadwal belajar yang terstruktur dan ikuti dengan disiplin.</string>
+
+</resources>
