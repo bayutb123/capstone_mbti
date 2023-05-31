@@ -1,7 +1,6 @@
-# Capstone Project MBTI App
+# Capstone Project MBTI App (C23-PS211)
 
 Project Name		: MBTI-EDU: A Personality Identification Application for Improving the Quality of Learning
-Team ID		: C23-PS211
 
 Team Member		: 
 - (ML) M125DKY4715 – Jasmin Nur Hanifa - (Active)
