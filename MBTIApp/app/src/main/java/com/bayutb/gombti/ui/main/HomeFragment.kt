@@ -6,21 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bayutb.gombti.databinding.FragmentHomeBinding
+import com.bayutb.gombti.model.LoginSession
 
+@Suppress("DEPRECATION")
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var fullName: String
-    private lateinit var mbtiType: String
-    private lateinit var personalityType : String
-    private lateinit var personalityDescription : String
+    private lateinit var userData : ArrayList<LoginSession>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val bundle = arguments
-        mbtiType = bundle!!.getString("mbti") ?: "Error"
-        personalityType = bundle.getString("personality") ?: "Error"
-        personalityDescription = bundle.getString("personalityDescription") ?: "Error"
-        fullName = bundle.getString("name") ?: "Error"
+        userData = arguments?.getParcelableArrayList("session")!!
     }
 
     override fun onCreateView(
@@ -30,10 +25,10 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.apply {
-            tvFullName.text = fullName
-            tvMbtiType.text = mbtiType
-            tvPersonalityType.text = personalityType
-            tvPersonalityDescription.text = personalityDescription
+            tvFullName.text = userData[0].fullName
+            tvMbtiType.text = userData[0].mbtiType
+            tvPersonalityType.text = userData[0].personalityType
+            tvPersonalityDescription.text = userData[0].personalityDescription
         }
         return binding.root
     }

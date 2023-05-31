@@ -32,4 +32,8 @@
     <string name="example_tv_email_address">a150dsx2099@bangkit.academy</string>
     <string name="example_tv_recommendation">Membuat jadwal belajar terstruktur: ISTJ cenderung menghargai keteraturan dan struktur. Buat jadwal belajar yang terstruktur dan ikuti dengan disiplin.</string>
 
+    <string name="dialog_logout_question">Kamu yakin ingin logout?</string>
+    <string name="dialog_logout_positive">Logout</string>
+    <string name="dialog_logout_negative">Batal</string>
+
 </resources>

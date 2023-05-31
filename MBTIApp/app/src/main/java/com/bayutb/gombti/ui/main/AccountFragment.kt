@@ -1,40 +1,27 @@
 package com.bayutb.gombti.ui.main
 
-import android.content.Intent
+import android.content.DialogInterface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import com.bayutb.gombti.MainActivity
 import com.bayutb.gombti.R
 import com.bayutb.gombti.databinding.FragmentAccountBinding
-import com.bayutb.gombti.ui.login.LoginActivity
+import com.bayutb.gombti.model.LoginSession
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AccountFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@Suppress("DEPRECATION")
 class AccountFragment : Fragment() {
 
     private lateinit var binding: FragmentAccountBinding
-
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var userData : ArrayList<LoginSession>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        userData = arguments?.getParcelableArrayList("session")!!
     }
 
     override fun onCreateView(
@@ -43,33 +30,31 @@ class AccountFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentAccountBinding.inflate(inflater, container, false)
-        binding.btnLogout.setOnClickListener {
-            Intent(activity, LoginActivity::class.java).also {
-                startActivity(it)
+        binding.apply {
+            btnLogout.setOnClickListener {
+                showAlert(requireActivity())
             }
-            activity?.finish()
+            tvEmailAddress.text = userData[0].emailAddress
+            tvFullName.text = userData[0].fullName
         }
 
         return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AccountFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AccountFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+}
+
+private fun showAlert(context: FragmentActivity) {
+    val alertDialog = AlertDialog.Builder(context)
+    alertDialog.setMessage(context.getString(R.string.dialog_logout_question))
+    alertDialog.setPositiveButton(context.getString(R.string.dialog_logout_positive)) { dialogInterface: DialogInterface, _: Int ->
+        (context as MainActivity).logout()
+        dialogInterface.dismiss()
     }
+
+    alertDialog.setNegativeButton(context.getString(R.string.dialog_logout_negative)) { dialogInterface: DialogInterface, _: Int ->
+        dialogInterface.dismiss()
+    }
+
+    val dialog = alertDialog.create()
+    dialog.show()
 }
