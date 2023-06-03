@@ -22,6 +22,24 @@ object DataSource {
             "ENFJ",
             "ENTJ"
         )
+        val personalityList = listOf(
+            "Ahli Logistik",
+            "Pembela",
+            "Menganjurkan",
+            "Arsitek",
+            "Ahli Pemain Alat Musik",
+            "Petualang",
+            "Penengah",
+            "Ahli Logika",
+            "Pengusaha",
+            "Penghibur",
+            "Juru Kampanye",
+            "Pendebat",
+            "Eksekutif",
+            "Konsul",
+            "Protagonis",
+            "Komandan"
+        )
         val allRecommendation = listOf(
             listOf(
                 "Membuat jadwal belajar terstruktur: ISTJ cenderung menghargai keteraturan dan struktur. Buat jadwal belajar yang terstruktur dan ikuti dengan disiplin.",
@@ -257,5 +275,116 @@ object DataSource {
         }
 
         return recommendation.flatten()
+    }
+
+    fun getPersonalityType(mbtiType: String): String {
+        val mbtiList = listOf(
+            "ISTJ",
+            "ISFJ",
+            "INFJ",
+            "INTJ",
+            "ISTP",
+            "ISFP",
+            "INFP",
+            "INTP",
+            "ESTP",
+            "ESFP",
+            "ENFP",
+            "ENTP",
+            "ESTJ",
+            "ESFJ",
+            "ENFJ",
+            "ENTJ"
+        )
+        val personalityList = listOf(
+            "Ahli Logistik",
+            "Pembela",
+            "Menganjurkan",
+            "Arsitek",
+            "Ahli Pemain Alat Musik",
+            "Petualang",
+            "Penengah",
+            "Ahli Logika",
+            "Pengusaha",
+            "Penghibur",
+            "Juru Kampanye",
+            "Pendebat",
+            "Eksekutif",
+            "Konsul",
+            "Protagonis",
+            "Komandan"
+        )
+
+        return when (mbtiType) {
+            mbtiList[0] -> {
+                personalityList[0]
+            }
+
+            mbtiList[1] -> {
+                personalityList[1]
+            }
+
+            mbtiList[2] -> {
+                personalityList[2]
+            }
+
+            mbtiList[3] -> {
+                personalityList[3]
+            }
+
+            mbtiList[4] -> {
+                personalityList[4]
+            }
+
+            mbtiList[5] -> {
+                personalityList[5]
+            }
+
+            mbtiList[6] -> {
+                personalityList[6]
+            }
+
+            mbtiList[7] -> {
+                personalityList[7]
+            }
+
+            mbtiList[8] -> {
+                personalityList[8]
+            }
+
+            mbtiList[9] -> {
+                personalityList[9]
+            }
+
+            mbtiList[10] -> {
+                personalityList[10]
+            }
+
+            mbtiList[11] -> {
+                personalityList[11]
+            }
+
+            mbtiList[12] -> {
+                personalityList[12]
+            }
+
+            mbtiList[13] -> {
+                personalityList[13]
+            }
+
+            mbtiList[14] -> {
+                personalityList[14]
+            }
+
+            mbtiList[15] -> {
+                personalityList[15]
+            }
+
+            else -> {
+                "Error MBTI Reference"
+            }
+
+        }
+
     }
 }

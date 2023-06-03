@@ -2,7 +2,6 @@ package com.bayutb.gombti
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bayutb.gombti.databinding.ActivityMainBinding
@@ -16,13 +15,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var loginSession: ArrayList<LoginSession> = ArrayList()
+    private var token: String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // [Test] Data From API Simulation
+        // [Test] Data From API Response Simulation
         val dataFromApi = LoginSession(
             1,
             "Bayu Tantra Bramandhita",
@@ -30,20 +30,25 @@ class MainActivity : AppCompatActivity() {
             "INTP",
             "Ahli Logika",
             "Penemu inovatif dengan rasa haus yang tak terpadamkan akan pengetahuan. Mereka adalah pemikir yang kritis, analitis, dan cenderung melihat masalah dari berbagai sudut pandang. INTP sangat tertarik pada teori dan konsep-konsep abstrak.",
-            "Token31231231"
+            "Token31231231 (Jika ada)"
         )
 
         loginSession.add(dataFromApi)
 
-        sessionCheck(loginSession[0].token)
+        // loginSession.clear() // Simulate Not have token
+
+        // Get Token if Session is Exists or token will be null
+        if (loginSession.size > 0) {
+            token = loginSession[0].token
+        }
+        sessionCheck(token)
 
         val homeBundle = Bundle()
-        homeBundle.putParcelableArrayList("session", loginSession)
-
         val personalityBundle = Bundle()
-        personalityBundle.putString("mbti", loginSession[0].mbtiType)
-
         val accountBundle = Bundle()
+
+        homeBundle.putParcelableArrayList("session", loginSession)
+        personalityBundle.putString("mbti", loginSession[0].mbtiType)
         accountBundle.putParcelableArrayList("session", loginSession)
 
         loadFragment(HomeFragment(), homeBundle)

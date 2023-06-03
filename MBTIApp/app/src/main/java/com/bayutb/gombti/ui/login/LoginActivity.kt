@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bayutb.gombti.MainActivity
+import com.bayutb.gombti.api.ApiConfig
+import com.bayutb.gombti.api.ApiService
 import com.bayutb.gombti.ui.register.RegisterActivity
 import com.bayutb.gombti.databinding.ActivityLoginBinding
 
@@ -16,10 +18,17 @@ class LoginActivity : AppCompatActivity() {
 
         binding.apply {
             btnLogin.setOnClickListener {
-                Intent(this@LoginActivity, MainActivity::class.java).also {
-                    startActivity(it)
-                }
-                finish()
+                val emailAddress = etEmailAddress.text.toString()
+                val password = etPassword.text.toString()
+
+                val apiService = ApiService.getInstance().create(ApiConfig::class.java)
+
+
+
+                // Intent(this@LoginActivity, MainActivity::class.java).also {
+                  //  startActivity(it)
+                //}
+                //finish()
             }
 
             goRegister.setOnClickListener {

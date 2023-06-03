@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bayutb.gombti.data.DataSource
 import com.bayutb.gombti.databinding.FragmentHomeBinding
 import com.bayutb.gombti.model.LoginSession
 
@@ -22,12 +23,13 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val personalityType = DataSource.getPersonalityType(userData[0].mbtiType)
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.apply {
             tvFullName.text = userData[0].fullName
             tvMbtiType.text = userData[0].mbtiType
-            tvPersonalityType.text = userData[0].personalityType
+            tvPersonalityType.text = personalityType
             tvPersonalityDescription.text = userData[0].personalityDescription
         }
         return binding.root
