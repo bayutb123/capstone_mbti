@@ -20,25 +20,16 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_previous"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:drawableLeft="@drawable/baseline_arrow_back_ios_24"
-            android:drawableTint="?attr/colorOnPrimary"
-            android:text="Sebelumnya"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_next"
             android:layout_width="160dp"
             android:layout_height="60dp"
             android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
             android:drawableTint="?attr/colorOnPrimary"
-            android:text="Selanjutnya"
+            android:visibility="visible"
+            android:text="@string/btn_next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -67,12 +58,13 @@
             android:paddingHorizontal="16dp">
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_question"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginBottom="50dp"
-                android:text="Apakah Anda lebih suka membaca buku daripada menonton video"
-                android:textAlignment="center"
                 android:gravity="center"
+                android:text="@string/example_tv_question"
+                android:textAlignment="center"
                 android:textColor="?attr/colorOnPrimaryContainer"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -86,44 +78,119 @@
                     android:id="@+id/rg_answer"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:gravity="bottom|center"
+                    android:gravity="center_horizontal"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
 
 
-
-
                     <RadioButton
-                        android:id="@+id/rb_no"
-                        android:layout_width="120dp"
-                        android:layout_height="60dp"
-                        android:layout_marginHorizontal="32dp"
+                        android:id="@+id/rb_1"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginHorizontal="8dp"
                         android:background="@drawable/radio_selector"
                         android:button="@android:color/transparent"
                         android:elevation="4dp"
                         android:padding="16dp"
-                        android:text="Tidak"
+                        android:text="1"
                         android:textAlignment="center"
                         android:textColor="@drawable/text_color" />
 
                     <RadioButton
-                        android:id="@+id/rb_yes"
-                        android:layout_width="120dp"
-                        android:layout_height="60dp"
-                        android:layout_marginHorizontal="32dp"
+                        android:id="@+id/rb_2"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginHorizontal="8dp"
                         android:background="@drawable/radio_selector"
                         android:button="@android:color/transparent"
                         android:elevation="4dp"
                         android:padding="16dp"
-                        android:text="Ya"
+                        android:text="2"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/text_color" />
+
+                    <RadioButton
+                        android:id="@+id/rb_3"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/radio_selector"
+                        android:button="@android:color/transparent"
+                        android:elevation="4dp"
+                        android:padding="16dp"
+                        android:text="3"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/text_color" />
+
+                    <RadioButton
+                        android:id="@+id/rb_4"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/radio_selector"
+                        android:button="@android:color/transparent"
+                        android:elevation="4dp"
+                        android:padding="16dp"
+                        android:text="4"
+                        android:textAlignment="center"
+                        android:textColor="@drawable/text_color" />
+
+                    <RadioButton
+                        android:id="@+id/rb_5"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@drawable/radio_selector"
+                        android:button="@android:color/transparent"
+                        android:elevation="4dp"
+                        android:padding="16dp"
+                        android:text="5"
                         android:textAlignment="center"
                         android:textColor="@drawable/text_color" />
 
                 </RadioGroup>
 
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.circularreveal.CircularRevealLinearLayout
+                android:id="@+id/ll_current_total"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_current_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="@string/example_tv_current_question"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorOnPrimaryContainer" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="@string/divider_current_total_question"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorOnPrimaryContainer" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_total_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="@string/example_total_question"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorOnPrimaryContainer" />
+            </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
         </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 

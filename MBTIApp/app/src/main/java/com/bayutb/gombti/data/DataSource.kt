@@ -387,4 +387,135 @@ object DataSource {
         }
 
     }
+
+    fun getPersonalityDesctiption(mbtiType: String): String {
+        val mbtiList = listOf(
+            "ISTJ",
+            "ISFJ",
+            "INFJ",
+            "INTJ",
+            "ISTP",
+            "ISFP",
+            "INFP",
+            "INTP",
+            "ESTP",
+            "ESFP",
+            "ENFP",
+            "ENTP",
+            "ESTJ",
+            "ESFJ",
+            "ENFJ",
+            "ENTJ"
+        )
+        val personalityDescriptionList = listOf(
+            "Individu yang praktis dan berpikiran fakta yang kendalanya tidak diragukan lagi. Mereka cenderung terorganisir, bertanggung jawab, dan dapat diandalkan. ISTJ memiliki ketelitian tinggi dalam menjalankan tugas-tugas yang terstruktur.",
+            "Pelindung yang sangat berdedikasi dan hangat, selalu siap membela orang yang mereka cintai. Mereka cenderung mengutamakan kebutuhan orang lain dan memiliki kepekaan sosial yang tinggi. ISFJ sering kali menjadi pendengar yang baik dan penolong setia.",
+            "Pendiam dan mistis, namun idealis yang sangat inspiratif dan tak kenal lelah. Mereka sangat peduli dengan kesejahteraan orang lain dan memiliki intuisi yang kuat. INFJ cenderung menjadi pembela nilai-nilai moral dan memiliki kemampuan untuk memahami perasaan dan motivasi orang lain.",
+            "Pemikir imajinatif dan strategis dengan rencana untuk segalanya. Mereka memiliki wawasan yang mendalam dan berorientasi pada solusi. INTJ cenderung independen, analitis, dan memiliki kemampuan pemecahan masalah yang kuat.",
+            "Eksperimen yang berani dan praktis, master dari semua jenis alat. Mereka memiliki keterampilan teknis yang kuat dan cenderung berpikir logis. ISTP sering kali menikmati tantangan fisik dan memiliki pemahaman yang mendalam tentang bagaimana sesuatu bekerja.",
+            "Seniman yang fleksibel dan menawan, selalu siap untuk mengeksplorasi dan merasakan sesuatu yang baru. Mereka sangat menghargai keindahan dan ekspresi diri. ISFP cenderung mengutamakan nilai-nilai pribadi dan memiliki kemampuan untuk menciptakan karya seni yang bermakna.",
+            "Orang yang puitis, baik hati, dan altruistik, selalu bersemangat untuk membantu tujuan yang baik. Mereka memiliki nilai-nilai yang kuat, sensitif terhadap perasaan orang lain, dan cenderung berpikir secara abstrak. INFP sering kali menjadi sumber inspirasi dan pendorong perubahan positif.",
+            "Penemu inovatif dengan rasa haus yang tak terpadamkan akan pengetahuan. Mereka adalah pemikir yang kritis, analitis, dan cenderung melihat masalah dari berbagai sudut pandang. INTP sangat tertarik pada teori dan konsep-konsep abstrak.",
+            "Orang yang cerdas, energik, dan sangat perseptif yang benar-benar menikmati hidup di ujung tanduk. Mereka cenderung berani mengambil risiko, berorientasi pada tindakan, dan memiliki kemampuan untuk beradaptasi dengan cepat. ESTP sering kali menjadi pemecah masalah yang cepat dan tangkas.",
+            "Orang-orang yang spontan, energik, dan antusias - hidup tidak pernah membosankan di sekitar mereka. Mereka memiliki kemampuan untuk membuat suasana menyenangkan dan cenderung menjadi pusat perhatian. ESFP sering kali menjadi pendongkrak semangat dan menyebarkan kegembiraan kepada orang lain.",
+            "Semangat bebas yang antusias, kreatif, dan mudah bergaul yang selalu dapat menemukan alasan untuk tersenyum. Mereka memiliki daya tarik yang besar terhadap hal-hal baru dan berbeda, serta memiliki kemampuan untuk memotivasi dan menginspirasi orang lain.",
+            "Pemikir cerdas dan ingin tahu yang tidak bisa menolak tantangan intelektual. Mereka memiliki kemampuan berpikir cepat, kreativitas yang tinggi, dan keahlian dalam berdebat. ENTP sering kali menjadi pemimpin dalam mengubah ide-ide menjadi tindakan nyata.",
+            "Administrator yang luar biasa, tak tertandingi dalam mengelola berbagai hal atau orang. Mereka cenderung terorganisir, efisien, dan berorientasi pada fakta. ESTJ memiliki kemampuan kepemimpinan yang kuat dan sering menjadi pengambil keputusan yang tegas.",
+            "Orang-orang yang luar biasa peduli, pandai bergaul dan populer, selalu ingin membantu. Mereka memiliki kepekaan sosial yang tinggi dan berkomitmen untuk memelihara hubungan yang baik dengan orang lain. ESFJ sering kali menjadi pendukung yang setia dan menjaga keharmonisan dalam kelompok.",
+            "Pemimpin yang karismatik dan inspiratif, mampu memikat pendengarnya. Mereka memiliki kepedulian yang tinggi terhadap kesejahteraan orang lain dan sering kali menjadi penggerak sosial. ENFJ cenderung bersemangat dalam membantu orang lain mencapai potensi terbaik mereka.",
+            "Pemimpin yang berani, imajinatif, dan berkemauan keras, selalu menemukan jalan - atau membuatnya. Mereka cenderung berorientasi pada tujuan, efisien, dan memiliki kemampuan untuk mengorganisir dengan baik. ENTJ sering kali menjadi pemimpin yang strategis dan mampu menginspirasi orang lain."
+        )
+
+        return when (mbtiType) {
+            mbtiList[0] -> {
+                personalityDescriptionList[0]
+            }
+
+            mbtiList[1] -> {
+                personalityDescriptionList[1]
+            }
+
+            mbtiList[2] -> {
+                personalityDescriptionList[2]
+            }
+
+            mbtiList[3] -> {
+                personalityDescriptionList[3]
+            }
+
+            mbtiList[4] -> {
+                personalityDescriptionList[4]
+            }
+
+            mbtiList[5] -> {
+                personalityDescriptionList[5]
+            }
+
+            mbtiList[6] -> {
+                personalityDescriptionList[6]
+            }
+
+            mbtiList[7] -> {
+                personalityDescriptionList[7]
+            }
+
+            mbtiList[8] -> {
+                personalityDescriptionList[8]
+            }
+
+            mbtiList[9] -> {
+                personalityDescriptionList[9]
+            }
+
+            mbtiList[10] -> {
+                personalityDescriptionList[10]
+            }
+
+            mbtiList[11] -> {
+                personalityDescriptionList[11]
+            }
+
+            mbtiList[12] -> {
+                personalityDescriptionList[12]
+            }
+
+            mbtiList[13] -> {
+                personalityDescriptionList[13]
+            }
+
+            mbtiList[14] -> {
+                personalityDescriptionList[14]
+            }
+
+            mbtiList[15] -> {
+                personalityDescriptionList[15]
+            }
+
+            else -> {
+                "Error MBTI Reference"
+            }
+
+        }
+
+    }
+
+    fun getQuestions(): List<String> {
+        return listOf(
+            "Apakah Anda lebih suka membaca buku daripada menonton video? \n( 1 - 5 ) ",
+            "Apakah Anda lebih suka belajar secara mandiri daripada dalam kelompok? \n( 1 - 5 ) ",
+            "Apakah Anda cenderung tertarik pada ilmu alam dan matematika? \n( 1 - 5 ) ",
+            "Apakah Anda lebih suka bekerja dengan tangan? \n( 1 - 5 ) ",
+            "Apakah Anda tertarik pada seni dan kreativitas? \n( 1 - 5 ) ",
+            "Apakah Anda cenderung mengingat informasi dengan baik? \n( 1 - 5 ) ",
+            "Apakah Anda suka bekerja dengan data dan statistik? \n( 1 - 5 ) ",
+            "Apakah Anda tertarik pada pengembangan diri dan kesehatan? \n( 1 - 5 ) ",
+            "Apakah Anda suka mengajar dan berinteraksi dengan orang lain? \n( 1 - 5 ) ",
+            "Apakah Anda lebih suka menulis daripada berbicara di depan umum? \n( 1 - 5 ) ",
+            "Apakah Anda tertarik pada sejarah dan budaya? \n( 1 - 5 ) ",
+            "Apakah Anda cenderung terorganisir dan disiplin? \n( 1 - 5 ) ",
+            "Apakah Anda suka melakukan eksperimen dan riset? \n( 1 - 5 ) ",
+            "Apakah Anda tertarik pada masalah sosial dan keadilan? \n( 1 - 5 ) ",
+            "Apakah Anda suka berbicara dan memimpin kelompok? \n( 1 - 5 ) "
+        )
+    }
 }

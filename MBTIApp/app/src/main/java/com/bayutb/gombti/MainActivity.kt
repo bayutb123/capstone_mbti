@@ -27,9 +27,7 @@ class MainActivity : AppCompatActivity() {
             1,
             "Bayu Tantra Bramandhita",
             "a150dsx2099@bangkit.academy",
-            "INTP",
-            "Ahli Logika",
-            "Penemu inovatif dengan rasa haus yang tak terpadamkan akan pengetahuan. Mereka adalah pemikir yang kritis, analitis, dan cenderung melihat masalah dari berbagai sudut pandang. INTP sangat tertarik pada teori dan konsep-konsep abstrak.",
+            "INFP",
             "Token31231231 (Jika ada)"
         )
 
@@ -41,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         if (loginSession.size > 0) {
             token = loginSession[0].token
         }
+
         sessionCheck(token)
 
         val homeBundle = Bundle()

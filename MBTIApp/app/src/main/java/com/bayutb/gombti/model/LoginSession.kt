@@ -9,7 +9,5 @@ data class LoginSession(
     val fullName: String,
     val emailAddress: String,
     val mbtiType : String,
-    val personalityType : String,
-    val personalityDescription : String,
     val token : String
 ) : Parcelable

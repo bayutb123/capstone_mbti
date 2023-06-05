@@ -35,5 +35,11 @@
     <string name="dialog_logout_question">Kamu yakin ingin logout?</string>
     <string name="dialog_logout_positive">Logout</string>
     <string name="dialog_logout_negative">Batal</string>
+    <string name="btn_next">Selanjutnya</string>
+    <string name="example_tv_question">Apakah Anda lebih suka membaca buku daripada menonton video</string>
+    <string name="btn_previous">Sebelumnya</string>
+    <string name="example_tv_current_question">1</string>
+    <string name="divider_current_total_question">/</string>
+    <string name="example_total_question">1</string>
 
 </resources>

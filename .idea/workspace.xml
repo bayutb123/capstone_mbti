@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="Optimize Bundles, now sends ParcelableArray. Also add logout and session checking function." />
+    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/model/LoginSession.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/model/LoginSession.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,17 +24,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "F:/Bayu/BANGKIT2023/androidStudio/capstone_mbti",
-    "settings.editor.selected.configurable": "preferences.pathVariables",
-    "settings.editor.splitter.proportion": "0.24590164"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Bayu/BANGKIT2023/androidStudio/capstone_mbti&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24590164&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,7 +51,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685528906099</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add base url call from build.gradle to ApiService add PersonalityType to DataSource and apply it at HomeFragment">
+      <created>1685788295859</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685788295859</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -64,6 +74,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Optimize Bundles, now sends ParcelableArray. Also add logout and session checking function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize Bundles, now sends ParcelableArray. Also add logout and session checking function." />
+    <MESSAGE value="Add base url call from build.gradle to ApiService add PersonalityType to DataSource and apply it at HomeFragment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add base url call from build.gradle to ApiService add PersonalityType to DataSource and apply it at HomeFragment" />
   </component>
 </project>
