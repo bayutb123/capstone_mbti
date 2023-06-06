@@ -15,5 +15,5 @@ Project Name		: MBTI-EDU: A Personality Identification Application for Improving
 
 ### Changing API's URL
 Change API URL at **build.properties** 
-![App Screenshot](https://www.mediafire.com/file/no7muauzhy69ps6/change+api+url.png/file)
+![App Screenshot](https://github.com/bayutb123/capstone_mbti/blob/main/Screenshots/change%20api%20url.png)
 
