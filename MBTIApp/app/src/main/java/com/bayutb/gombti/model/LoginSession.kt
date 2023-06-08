@@ -5,9 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class LoginSession(
-    val accountId: Int,
-    val fullName: String,
-    val emailAddress: String,
-    val mbtiType : String,
-    val token : String
+    val userId: String,
+    val name: String,
+    val email: String,
+    val mbti: String
 ) : Parcelable

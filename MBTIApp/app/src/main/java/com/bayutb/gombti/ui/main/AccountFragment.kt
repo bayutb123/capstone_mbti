@@ -34,8 +34,8 @@ class AccountFragment : Fragment() {
             btnLogout.setOnClickListener {
                 showAlert(requireActivity())
             }
-            tvEmailAddress.text = userData[0].emailAddress
-            tvFullName.text = userData[0].fullName
+            tvEmailAddress.text = userData[0].email
+            tvFullName.text = userData[0].name
         }
 
         return binding.root

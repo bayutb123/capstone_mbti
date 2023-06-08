@@ -22,24 +22,6 @@ object DataSource {
             "ENFJ",
             "ENTJ"
         )
-        val personalityList = listOf(
-            "Ahli Logistik",
-            "Pembela",
-            "Menganjurkan",
-            "Arsitek",
-            "Ahli Pemain Alat Musik",
-            "Petualang",
-            "Penengah",
-            "Ahli Logika",
-            "Pengusaha",
-            "Penghibur",
-            "Juru Kampanye",
-            "Pendebat",
-            "Eksekutif",
-            "Konsul",
-            "Protagonis",
-            "Komandan"
-        )
         val allRecommendation = listOf(
             listOf(
                 "Membuat jadwal belajar terstruktur: ISTJ cenderung menghargai keteraturan dan struktur. Buat jadwal belajar yang terstruktur dan ikuti dengan disiplin.",

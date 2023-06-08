@@ -23,13 +23,13 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val personalityType = DataSource.getPersonalityType(userData[0].mbtiType)
-        val personalityDescription = DataSource.getPersonalityDesctiption(userData[0].mbtiType)
+        val personalityType = DataSource.getPersonalityType(userData[0].mbti)
+        val personalityDescription = DataSource.getPersonalityDesctiption(userData[0].mbti)
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.apply {
-            tvFullName.text = userData[0].fullName
-            tvMbtiType.text = userData[0].mbtiType
+            tvFullName.text = userData[0].name
+            tvMbtiType.text = userData[0].mbti
             tvPersonalityType.text = personalityType
             tvPersonalityDescription.text = personalityDescription
         }

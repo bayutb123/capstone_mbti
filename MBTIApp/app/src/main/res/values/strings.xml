@@ -34,8 +34,12 @@
 
     <string name="dialog_logout_question">Kamu yakin ingin logout?</string>
     <string name="dialog_logout_positive">Logout</string>
+    <string name="dialog_invalid_register">Silahkan isi semua kolom terlebih dahulu</string>
+    <string name="dialog_invalid_register_positive">Oke</string>
+    <string name="dialog_mbti_positive">Ayo Login!</string>
     <string name="dialog_logout_negative">Batal</string>
     <string name="btn_next">Selanjutnya</string>
+    <string name="btn_finish">Selesai</string>
     <string name="example_tv_question">Apakah Anda lebih suka membaca buku daripada menonton video</string>
     <string name="btn_previous">Sebelumnya</string>
     <string name="example_tv_current_question">1</string>

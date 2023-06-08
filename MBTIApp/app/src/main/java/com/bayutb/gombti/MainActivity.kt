@@ -10,45 +10,38 @@ import com.bayutb.gombti.ui.login.LoginActivity
 import com.bayutb.gombti.ui.main.AccountFragment
 import com.bayutb.gombti.ui.main.HomeFragment
 import com.bayutb.gombti.ui.main.PersonalityFragment
+import com.bayutb.gombti.ui.mbti.MbtiActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var loginSession: ArrayList<LoginSession> = ArrayList()
-    private var token: String ?= null
+    private var login: Boolean = false
+    private var mbti: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // [Test] Data From API Response Simulation
-        val dataFromApi = LoginSession(
-            1,
-            "Bayu Tantra Bramandhita",
-            "a150dsx2099@bangkit.academy",
-            "INFP",
-            "Token31231231 (Jika ada)"
+        val loginSession = LoginSession(
+            intent.getStringExtra("userId") ?: "",
+            intent.getStringExtra("name") ?: "Bayu",
+            intent.getStringExtra("email") ?: "test@example.com",
+            intent.getStringExtra("mbti") ?: "INFP"
         )
 
-        loginSession.add(dataFromApi)
-
-        // loginSession.clear() // Simulate Not have token
-
-        // Get Token if Session is Exists or token will be null
-        if (loginSession.size > 0) {
-            token = loginSession[0].token
+        if (loginSession.userId == "") {
+            sessionCheck(login)
         }
-
-        sessionCheck(token)
 
         val homeBundle = Bundle()
         val personalityBundle = Bundle()
         val accountBundle = Bundle()
 
-        homeBundle.putParcelableArrayList("session", loginSession)
-        personalityBundle.putString("mbti", loginSession[0].mbtiType)
-        accountBundle.putParcelableArrayList("session", loginSession)
+        homeBundle.putParcelableArrayList("session", arrayListOf(loginSession))
+        personalityBundle.putString("mbti", loginSession.mbti)
+        accountBundle.putParcelableArrayList("session", arrayListOf(loginSession))
 
         loadFragment(HomeFragment(), homeBundle)
 
@@ -59,15 +52,20 @@ class MainActivity : AppCompatActivity() {
                         loadFragment(HomeFragment(), homeBundle)
                         true
                     }
+
                     R.id.personality -> {
                         loadFragment(PersonalityFragment(), personalityBundle)
                         true
                     }
+
                     R.id.account -> {
                         loadFragment(AccountFragment(), accountBundle)
                         true
                     }
-                    else -> { true }
+
+                    else -> {
+                        true
+                    }
                 }
             }
         }
@@ -81,14 +79,15 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun sessionCheck(token: String?) {
-        if (token == null) {
+    private fun sessionCheck(login: Boolean) {
+        if (!login) {
             Intent(this@MainActivity, LoginActivity::class.java).also {
                 startActivity(it)
             }
             finish()
         }
     }
+
 
     private fun loadFragment(fragment: Fragment, bundle: Bundle) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
