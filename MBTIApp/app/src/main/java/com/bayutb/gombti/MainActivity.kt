@@ -10,30 +10,30 @@ import com.bayutb.gombti.ui.login.LoginActivity
 import com.bayutb.gombti.ui.main.AccountFragment
 import com.bayutb.gombti.ui.main.HomeFragment
 import com.bayutb.gombti.ui.main.PersonalityFragment
+import com.bayutb.gombti.ui.main.SessionManager
 import com.bayutb.gombti.ui.mbti.MbtiActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var loginSession: ArrayList<LoginSession> = ArrayList()
-    private var login: Boolean = false
-    private var mbti: String? = ""
+    private var userId: String?= null
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val loginSession = LoginSession(
-            intent.getStringExtra("userId") ?: "",
-            intent.getStringExtra("name") ?: "Bayu",
-            intent.getStringExtra("email") ?: "test@example.com",
-            intent.getStringExtra("mbti") ?: "INFP"
-        )
+        sessionManager = SessionManager(this@MainActivity)
+        userId = sessionManager.checkAuth()
+        sessionCheck(userId)
 
-        if (loginSession.userId == "") {
-            sessionCheck(login)
-        }
+        val loginSession = LoginSession(
+            userId ?: "",
+            sessionManager.getName() ?: "Bayu",
+            sessionManager.getEmail() ?: "test@example.com",
+            sessionManager.getMbti() ?: "INFP"
+        )
 
         val homeBundle = Bundle()
         val personalityBundle = Bundle()
@@ -72,15 +72,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun logout() {
-        loginSession.clear()
+        sessionManager.clearAuth()
         Intent(this@MainActivity, LoginActivity::class.java).also {
             startActivity(it)
         }
         finish()
     }
 
-    private fun sessionCheck(login: Boolean) {
-        if (!login) {
+    private fun sessionCheck(userId: String?) {
+        if (userId == null) {
             Intent(this@MainActivity, LoginActivity::class.java).also {
                 startActivity(it)
             }

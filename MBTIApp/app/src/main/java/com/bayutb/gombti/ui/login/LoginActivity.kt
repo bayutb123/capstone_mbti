@@ -8,12 +8,15 @@ import androidx.lifecycle.ViewModelProvider
 import com.bayutb.gombti.MainActivity
 import com.bayutb.gombti.databinding.ActivityLoginBinding
 import com.bayutb.gombti.model.LoginSession
+import com.bayutb.gombti.ui.main.SessionManager
 import com.bayutb.gombti.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var viewModel: LoginViewModel
     private lateinit var loginSession: List<LoginSession>
+    private lateinit var sessionManager: SessionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -31,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
                 loginSession = viewModel.loginUser(emailAddress, password)
 
                 if (loginSession.isNotEmpty()) {
+                    sessionManager = SessionManager(this@LoginActivity)
+                    sessionManager.saveAuth(loginSession[0].userId, loginSession[0].name, loginSession[0].email, loginSession[0].mbti)
                     Toast.makeText(this@LoginActivity, "Selamat datang, ${loginSession[0].name}", Toast.LENGTH_LONG).show()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     intent.putExtra("userId", loginSession[0].userId)

@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/data/DataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/data/DataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/mbti/MbtiActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/mbti/MbtiActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686052569863</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Login Back End API Fetching and API Connections">
+      <created>1686215068592</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686215068592</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -97,6 +97,7 @@
     <MESSAGE value="Add base url call from build.gradle to ApiService add PersonalityType to DataSource and apply it at HomeFragment" />
     <MESSAGE value="Completed DataSource.kt&#10;Simplified Response from API needed at LoginSession.kt&#10;Progress at MBTI Activity" />
     <MESSAGE value="Screenshot Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Screenshot Commit" />
+    <MESSAGE value="Add Login Back End API Fetching and API Connections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Login Back End API Fetching and API Connections" />
   </component>
 </project>
