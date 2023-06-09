@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bayutb.gombti.MainActivity
+import com.bayutb.gombti.R
 import com.bayutb.gombti.databinding.ActivityLoginBinding
 import com.bayutb.gombti.model.LoginSession
 import com.bayutb.gombti.ui.main.SessionManager
@@ -34,18 +35,19 @@ class LoginActivity : AppCompatActivity() {
                 loginSession = viewModel.loginUser(emailAddress, password)
 
                 if (loginSession.isNotEmpty()) {
-                    sessionManager = SessionManager(this@LoginActivity)
-                    sessionManager.saveAuth(loginSession[0].userId, loginSession[0].name, loginSession[0].email, loginSession[0].mbti)
-                    Toast.makeText(this@LoginActivity, "Selamat datang, ${loginSession[0].name}", Toast.LENGTH_LONG).show()
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    intent.putExtra("userId", loginSession[0].userId)
-                    intent.putExtra("name", loginSession[0].name)
-                    intent.putExtra("email", loginSession[0].email)
-                    intent.putExtra("mbti", loginSession[0].mbti)
-                    startActivity(intent)
-                    finish()
+                    if (loginSession[0].userId == "invalid") {
+                        Toast.makeText(this@LoginActivity, getString(R.string.toast_login_wrong_cridential), Toast.LENGTH_LONG).show()
+                        viewModel.clear()
+                    } else {
+                        sessionManager = SessionManager(this@LoginActivity)
+                        sessionManager.saveAuth(loginSession[0].userId, loginSession[0].name, loginSession[0].email, loginSession[0].mbti)
+                        Toast.makeText(this@LoginActivity, getString(R.string.toast_welcome, loginSession[0].name), Toast.LENGTH_LONG).show()
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                 } else {
-                    Toast.makeText(this@LoginActivity, "Tekan login sekali lagi", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@LoginActivity, getString(R.string.toast_login_btn_press_again), Toast.LENGTH_SHORT).show()
                 }
 
             }

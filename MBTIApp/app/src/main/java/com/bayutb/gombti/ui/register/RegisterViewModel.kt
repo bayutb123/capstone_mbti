@@ -22,6 +22,8 @@ class RegisterViewModel(application: Application) : AndroidViewModel(application
                     if (response.isSuccessful && response.body() != null) {
                         if (response.body()?.message == "Account created") {
                             userData.add(0,response.body()!!.data.userId)
+                        } else {
+                            userData.add(0, "Register Failed")
                         }
                     }
                     Log.d("Success : " , userData[0])

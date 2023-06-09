@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         val loginSession = LoginSession(
             userId ?: "",
-            sessionManager.getName() ?: "Bayu",
-            sessionManager.getEmail() ?: "test@example.com",
-            sessionManager.getMbti() ?: "INFP"
+            sessionManager.getName() ?: "",
+            sessionManager.getEmail() ?: "",
+            sessionManager.getMbti() ?: ""
         )
 
         val homeBundle = Bundle()

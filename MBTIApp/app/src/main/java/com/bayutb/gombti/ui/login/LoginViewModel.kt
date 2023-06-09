@@ -29,8 +29,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                                 loginResult.email,
                                 loginResult.mbti
                             ))
+                        } else {
+                            loginResponse.add(0, LoginSession("invalid","","",""))
                         }
-                        Log.d("Success : ", "$loginResult")
+                        Log.d("Success : ", "$loginResponse")
                     }
                 }
 
@@ -41,6 +43,10 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         )
 
         return loginResponse
+    }
+
+    fun clear() {
+        loginResponse.clear()
     }
 
 }

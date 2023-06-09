@@ -47,5 +47,8 @@
     <string name="example_tv_current_question">1</string>
     <string name="divider_current_total_question">/</string>
     <string name="example_total_question">1</string>
+    <string name="toast_welcome">Selamat datang, %1$s</string>
+    <string name="toast_login_btn_press_again">Tekan login sekali lagi</string>
+    <string name="toast_login_wrong_cridential">Email atau password tidak ditemukan</string>
 
 </resources>
