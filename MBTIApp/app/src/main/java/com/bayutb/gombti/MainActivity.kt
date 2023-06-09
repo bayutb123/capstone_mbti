@@ -11,7 +11,6 @@ import com.bayutb.gombti.ui.main.AccountFragment
 import com.bayutb.gombti.ui.main.HomeFragment
 import com.bayutb.gombti.ui.main.PersonalityFragment
 import com.bayutb.gombti.ui.main.SessionManager
-import com.bayutb.gombti.ui.mbti.MbtiActivity
 
 class MainActivity : AppCompatActivity() {
 

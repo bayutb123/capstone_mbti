@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModelProvider
 import com.bayutb.gombti.R
 import com.bayutb.gombti.databinding.ActivityRegisterBinding
 import com.bayutb.gombti.ui.login.LoginActivity
@@ -19,11 +20,15 @@ import com.bayutb.gombti.ui.mbti.MbtiActivity
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var viewModel: RegisterViewModel
+    private var userId: String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
 
         binding.apply {
             checkPassword(etPassword, etRePassword, btnRegister)
@@ -70,15 +75,8 @@ class RegisterActivity : AppCompatActivity() {
                 if (fullName == "" || emailAddress == "" || password == "" || gender == "Unresolved" || birthDate == "") {
                     showAlert(this@RegisterActivity)
                 } else {
-                    /*
-                   PROSES TEMBAK API ENDPOINT
-                   */
-
-                    // PASSING USER ID KE MBTI ACTIVITY
-                    val userId = 1 // GET RESPONSE DARI ENDPOINT REGISTER
-                    val intent = Intent(this@RegisterActivity, MbtiActivity::class.java)
-                    intent.putExtra("userId", userId)
-                    startActivity(intent)
+                    viewModel.registerUser(fullName, emailAddress, password, gender, birthDate)
+                    registerAlert(this@RegisterActivity, viewModel)
                 }
             }
         }
@@ -100,6 +98,21 @@ private fun showAlert(context: Context) {
     val alertDialog = AlertDialog.Builder(context)
     alertDialog.setMessage(R.string.dialog_invalid_register)
     alertDialog.setPositiveButton(context.getString(R.string.dialog_invalid_register_positive)) { dialogInterface: DialogInterface, _: Int ->
+        dialogInterface.dismiss()
+    }
+
+    val dialog = alertDialog.create()
+    dialog.show()
+}
+
+private fun registerAlert(context: Context, viewModel: RegisterViewModel) {
+    val alertDialog = AlertDialog.Builder(context)
+    alertDialog.setMessage(R.string.dialog_register_complete_message)
+    alertDialog.setPositiveButton(context.getString(R.string.dialog_register_complete_positive)) { dialogInterface: DialogInterface, _: Int ->
+        val userId = viewModel.getUserId()[0]
+        val intent = Intent(context, MbtiActivity::class.java)
+        intent.putExtra("userId", userId)
+        (context as RegisterActivity ).startActivity(intent)
         dialogInterface.dismiss()
     }
 

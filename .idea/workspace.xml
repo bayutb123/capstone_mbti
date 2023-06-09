@@ -78,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686215068592</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add SessionManager">
+      <created>1686216969141</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686216969142</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,6 +105,7 @@
     <MESSAGE value="Completed DataSource.kt&#10;Simplified Response from API needed at LoginSession.kt&#10;Progress at MBTI Activity" />
     <MESSAGE value="Screenshot Commit" />
     <MESSAGE value="Add Login Back End API Fetching and API Connections" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Login Back End API Fetching and API Connections" />
+    <MESSAGE value="Add SessionManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SessionManager" />
   </component>
 </project>

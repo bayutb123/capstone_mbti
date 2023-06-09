@@ -1,5 +1,12 @@
 package com.bayutb.gombti.api.responses
 
-class RegisterResponse(
-    val userId: Int
+import com.google.gson.annotations.SerializedName
+
+data class RegisterResponse(
+
+	@field:SerializedName("data")
+	val data: Data,
+
+	@field:SerializedName("message")
+	val message: String
 )

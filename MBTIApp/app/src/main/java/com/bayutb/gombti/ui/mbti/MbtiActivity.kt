@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +30,11 @@ class MbtiActivity : AppCompatActivity() {
         questionsList = DataSource.getQuestions()
 
         val totalQuestions = questionsList.size
-        val userRegisterData = intent.getIntExtra("userId", 0)
+        val userId = intent.getStringExtra("userId")
+
+        if (userId != null) {
+            Log.d("UserID : ", userId)
+        }
 
         binding.apply {
             tvQuestion.text = questionsList[index]
@@ -58,7 +63,7 @@ class MbtiActivity : AppCompatActivity() {
                     btnNext.visibility = View.INVISIBLE
                     llCurrentTotal.visibility = View.INVISIBLE
                     showAlert2(this@MbtiActivity,
-                        "Tes MBTI selesai \nPost to /mbtiTest: \npoint = $points")
+                        "Tes MBTI selesai \nPost to /mbtiTest: \npoint = $points", userId!!)
 
                 } else if (index == totalQuestions -1) {
                     btnNext.text = getString(R.string.btn_finish)
@@ -85,12 +90,12 @@ private fun showAlert(context: Context, message :String) {
     dialog.show()
 }
 
-private fun showAlert2(context: Context, message :String) {
+private fun showAlert2(context: Context, message :String, userId: String) {
     val alertDialog = AlertDialog.Builder(context)
     alertDialog.setMessage(message)
     alertDialog.setPositiveButton(context.getString(R.string.dialog_mbti_positive)) { dialogInterface: DialogInterface, _: Int ->
         showAlert(context,
-            "Tes MBTI selesai \nPost to /mbtiResult: \nuserId = 'response dari /register' \nmbtiType = 'response dari /mbtiTest'")
+            "Tes MBTI selesai \nPost to /mbtiResult: \nuserId = $userId \nmbtiType = 'response dari /mbtiTest'")
         dialogInterface.dismiss()
     }
 
