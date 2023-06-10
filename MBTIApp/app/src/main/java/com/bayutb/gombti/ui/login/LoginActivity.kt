@@ -27,11 +27,9 @@ class LoginActivity : AppCompatActivity() {
 
         sessionManager = SessionManager(this@LoginActivity)
 
-
         binding.apply {
 
             btnLogin.setOnClickListener {
-
                 val emailAddress = etEmailAddress.text.toString()
                 val password = etPassword.text.toString()
 
@@ -44,13 +42,13 @@ class LoginActivity : AppCompatActivity() {
                             if (response.isSuccessful) {
                                 val loginResult = response.body()?.loginResult
                                 if (loginResult != null) {
-                                    sessionManager.saveAuth(loginResult.userId, loginResult.name, loginResult.email, loginResult.mbti)
+                                    sessionManager.saveAuth(loginResult.userId.toString(), loginResult.name, loginResult.email, loginResult.mbti)
+                                    Toast.makeText(this@LoginActivity, getString(R.string.toast_welcome, loginResult.name), Toast.LENGTH_SHORT).show()
                                     Intent(this@LoginActivity, MainActivity::class.java).also { startActivity(it) }
-                                } else {
-                                    // API NOT RETURNING LOGIN RESULT = WRONG EMAIL / PASSWORD
-                                    Toast.makeText(this@LoginActivity, getString(R.string.toast_login_wrong_cridential), Toast.LENGTH_SHORT).show()
                                 }
-                                Log.d("Success : ", "$loginResult")
+                            } else if (response.body()!!.error) {
+                                Toast.makeText(this@LoginActivity, getString(R.string.toast_login_wrong_cridential), Toast.LENGTH_SHORT).show()
+                                Log.d("Success : ", "${response.body()}")
                             }
                         }
 
@@ -59,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                 )
-
             }
 
             goRegister.setOnClickListener {
@@ -68,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 finish()
             }
+
         }
     }
 }
