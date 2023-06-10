@@ -6,44 +6,44 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModelProvider
 import com.bayutb.gombti.R
+import com.bayutb.gombti.api.ApiConfig
+import com.bayutb.gombti.api.responses.RegisterResponse
 import com.bayutb.gombti.databinding.ActivityRegisterBinding
 import com.bayutb.gombti.ui.login.LoginActivity
 import com.bayutb.gombti.ui.mbti.MbtiActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-    private lateinit var viewModel: RegisterViewModel
-    private var userId: String ?= null
+    private var userId = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
-
         binding.apply {
-            checkPassword(etPassword, etRePassword, btnRegister)
             etBirthDate.showSoftInputOnFocus = false
             etBirthDate.setOnClickListener {
                 val c = Calendar.getInstance()
                 val year = c.get(Calendar.YEAR)
-                val month  = c.get(Calendar.MONTH)
+                val month = c.get(Calendar.MONTH)
                 val day = c.get(Calendar.DAY_OF_MONTH)
                 val datePickerDialog = DatePickerDialog(
                     this@RegisterActivity,
                     { _, _year, _monthOfYear, _dayOfMonth ->
                         // on below line we are setting
                         // date to our edit text.
-                        val dat = (_dayOfMonth.toString() + "-" + (_monthOfYear + 1) + "-" + _year)
+                        val dat =
+                            (_year.toString() + "-" + (_monthOfYear + 1) + "-" + _dayOfMonth.toString())
                         etBirthDate.setText(dat)
                     },
                     year,
@@ -61,9 +61,10 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             btnRegister.setOnClickListener {
-                val fullName = etFullName.text.toString()
-                val emailAddress = etEmailAddress.text.toString()
+                val name = etFullName.text.toString()
+                val email = etEmailAddress.text.toString()
                 val password = etPassword.text.toString()
+                val rePassword = etRePassword.text.toString()
                 val gender = when (rgGender.checkedRadioButtonId) {
                     rbMale.id -> "Male"
                     rbFemale.id -> "Female"
@@ -71,48 +72,69 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 val birthDate = etBirthDate.text.toString()
 
-                // CHECK COLUMN SUDAH DIISI APA BELUM
-                if (fullName == "" || emailAddress == "" || password == "" || gender == "Unresolved" || birthDate == "") {
-                    showAlert(this@RegisterActivity)
+                if (name == "" || email == "" || password == "" || gender == "Unresolved" || birthDate == "") {
+                    showAlert(this@RegisterActivity, getString(R.string.dialog_invalid_register))
+                } else if  (password != rePassword) {
+                    showAlert(
+                        this@RegisterActivity,
+                        getString(R.string.dialog_invalid_register_password)
+                    )
                 } else {
-                    viewModel.registerUser(fullName, emailAddress, password, gender, birthDate)
-                    registerAlert(this@RegisterActivity, viewModel)
+                    isLoading(true)
+                    ApiConfig.getInstance().registerUser(name, email, password, gender, birthDate).enqueue(object : Callback<RegisterResponse> {
+                        override fun onResponse(
+                            call: Call<RegisterResponse>,
+                            response: Response<RegisterResponse>
+                        ) {
+                            if (response.isSuccessful) {
+                                if (response.body()?.data != null) {
+                                    userId.add(0, response.body()!!.data.userId)
+                                    registerAlert(this@RegisterActivity, userId[0])
+                                    Log.d("Success : ", response.body()!!.data.toString())
+                                }
+                            } else {
+                                Toast.makeText(this@RegisterActivity, getString(R.string.toast_register_email_exists), Toast.LENGTH_SHORT).show()
+                            }
+                            Log.d("Data : ", response.body().toString())
+                        }
+
+                        override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                            Log.d("Failed: ", t.message.toString())
+                        }
+
+                    })
+                    isLoading(false)
                 }
+
             }
         }
     }
+    private fun isLoading(status: Boolean) {
+
+        binding.btnRegister.isEnabled = !status
+
+    }
 }
 
-private fun checkPassword(etPassword: EditText, etRePassword: EditText, btnRegister : Button) {
 
-    etPassword.addTextChangedListener {
-        btnRegister.isEnabled = etPassword.text.toString() == etRePassword.text.toString()
-    }
-    etRePassword.addTextChangedListener {
-        btnRegister.isEnabled = etPassword.text.toString() == etRePassword.text.toString()
-    }
 
-}
-
-private fun showAlert(context: Context) {
+private fun showAlert(context: Context, message : String) {
     val alertDialog = AlertDialog.Builder(context)
-    alertDialog.setMessage(R.string.dialog_invalid_register)
+    alertDialog.setMessage(message)
     alertDialog.setPositiveButton(context.getString(R.string.dialog_invalid_register_positive)) { dialogInterface: DialogInterface, _: Int ->
         dialogInterface.dismiss()
     }
-
     val dialog = alertDialog.create()
     dialog.show()
 }
 
-private fun registerAlert(context: Context, viewModel: RegisterViewModel) {
+private fun registerAlert(context: Context, userId: String) {
     val alertDialog = AlertDialog.Builder(context)
     alertDialog.setMessage(R.string.dialog_register_complete_message)
     alertDialog.setPositiveButton(context.getString(R.string.dialog_register_complete_positive)) { dialogInterface: DialogInterface, _: Int ->
-        val userId = viewModel.getUserId()[0]
         val intent = Intent(context, MbtiActivity::class.java)
         intent.putExtra("userId", userId)
-        (context as RegisterActivity ).startActivity(intent)
+        (context as RegisterActivity).startActivity(intent)
         dialogInterface.dismiss()
     }
 

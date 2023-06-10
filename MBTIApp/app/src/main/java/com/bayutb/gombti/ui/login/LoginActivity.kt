@@ -2,20 +2,22 @@ package com.bayutb.gombti.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.bayutb.gombti.MainActivity
 import com.bayutb.gombti.R
+import com.bayutb.gombti.api.ApiConfig
+import com.bayutb.gombti.api.responses.LoginResponse
 import com.bayutb.gombti.databinding.ActivityLoginBinding
-import com.bayutb.gombti.model.LoginSession
 import com.bayutb.gombti.ui.main.SessionManager
 import com.bayutb.gombti.ui.register.RegisterActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var viewModel: LoginViewModel
-    private lateinit var loginSession: List<LoginSession>
     private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +25,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        sessionManager = SessionManager(this@LoginActivity)
+
 
         binding.apply {
 
@@ -32,23 +35,30 @@ class LoginActivity : AppCompatActivity() {
                 val emailAddress = etEmailAddress.text.toString()
                 val password = etPassword.text.toString()
 
-                loginSession = viewModel.loginUser(emailAddress, password)
+                ApiConfig.getInstance().loginUser(emailAddress, password).enqueue(
+                    object: Callback<LoginResponse> {
+                        override fun onResponse(
+                            call: Call<LoginResponse>,
+                            response: Response<LoginResponse>
+                        ) {
+                            if (response.isSuccessful) {
+                                val loginResult = response.body()?.loginResult
+                                if (loginResult != null) {
+                                    sessionManager.saveAuth(loginResult.userId, loginResult.name, loginResult.email, loginResult.mbti)
+                                    Intent(this@LoginActivity, MainActivity::class.java).also { startActivity(it) }
+                                } else {
+                                    // API NOT RETURNING LOGIN RESULT = WRONG EMAIL / PASSWORD
+                                    Toast.makeText(this@LoginActivity, getString(R.string.toast_login_wrong_cridential), Toast.LENGTH_SHORT).show()
+                                }
+                                Log.d("Success : ", "$loginResult")
+                            }
+                        }
 
-                if (loginSession.isNotEmpty()) {
-                    if (loginSession[0].userId == "invalid") {
-                        Toast.makeText(this@LoginActivity, getString(R.string.toast_login_wrong_cridential), Toast.LENGTH_LONG).show()
-                        viewModel.clear()
-                    } else {
-                        sessionManager = SessionManager(this@LoginActivity)
-                        sessionManager.saveAuth(loginSession[0].userId, loginSession[0].name, loginSession[0].email, loginSession[0].mbti)
-                        Toast.makeText(this@LoginActivity, getString(R.string.toast_welcome, loginSession[0].name), Toast.LENGTH_LONG).show()
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+                        override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                            Log.d("Failure : ", "${t.message}")
+                        }
                     }
-                } else {
-                    Toast.makeText(this@LoginActivity, getString(R.string.toast_login_btn_press_again), Toast.LENGTH_SHORT).show()
-                }
+                )
 
             }
 

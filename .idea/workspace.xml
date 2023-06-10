@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/model/RegisterData.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686299849663</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fix toast error, add exception when login endpoint return no logindata">
+      <created>1686302460223</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686302460223</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +119,7 @@
     <MESSAGE value="Add Login Back End API Fetching and API Connections" />
     <MESSAGE value="Add SessionManager" />
     <MESSAGE value="Add Register Connection to Test API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Register Connection to Test API" />
+    <MESSAGE value="Fix toast error, add exception when login endpoint return no logindata" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix toast error, add exception when login endpoint return no logindata" />
   </component>
 </project>

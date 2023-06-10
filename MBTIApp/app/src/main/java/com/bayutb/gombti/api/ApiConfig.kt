@@ -18,11 +18,4 @@ object ApiConfig {
         return retrofit.create(ApiService::class.java)
     }
 
-    fun getInterceptor() : OkHttpClient {
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
-
-        return OkHttpClient.Builder().addInterceptor(logging).build()
-    }
-
 }
