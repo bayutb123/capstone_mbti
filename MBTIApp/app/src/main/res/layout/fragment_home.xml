@@ -41,12 +41,12 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_full_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
                 android:maxLines="2"
                 android:text="@string/example_tv_full_name"
-                android:textAlignment="textEnd"
+                android:textAlignment="viewEnd"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold" />
