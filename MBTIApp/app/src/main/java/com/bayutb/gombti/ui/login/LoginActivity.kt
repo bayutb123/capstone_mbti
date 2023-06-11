@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
                                     sessionManager.saveAuth(loginResult.userId.toString(), loginResult.name, loginResult.email, loginResult.mbti)
                                     Toast.makeText(this@LoginActivity, getString(R.string.toast_welcome, loginResult.name), Toast.LENGTH_SHORT).show()
                                     Intent(this@LoginActivity, MainActivity::class.java).also { startActivity(it) }
+                                    finish()
                                 }
                             } else if (response.body()!!.error) {
                                 Toast.makeText(this@LoginActivity, getString(R.string.toast_login_wrong_cridential), Toast.LENGTH_SHORT).show()
