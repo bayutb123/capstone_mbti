@@ -51,7 +51,6 @@ dependencies {
 }
 ```
 
-```
 ## Clone the project
 ```bash
   git clone https://github.com/bayutb123/capstone_mbti.git
