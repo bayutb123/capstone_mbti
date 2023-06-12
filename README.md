@@ -55,7 +55,7 @@ dependencies {
 ```bash
   git clone https://github.com/bayutb123/capstone_mbti.git
 ```
-#### Launch Android Studio and Open Project **MBTIApp** in the **capstone_mbti** folder
+Launch Android Studio and Open Project **MBTIApp** in the **capstone_mbti** folder
 
 #### Launch using Android Studio Emulator :
 - Click **Run App** or press **Shift + F10**
