@@ -483,21 +483,22 @@ object DataSource {
 
     fun getQuestions(): List<String> {
         return listOf(
-            "Apakah Anda lebih suka membaca buku daripada menonton video? \n( 1 - 5 ) ",
-            "Apakah Anda lebih suka belajar secara mandiri daripada dalam kelompok? \n( 1 - 5 ) ",
-            "Apakah Anda cenderung tertarik pada ilmu alam dan matematika? \n( 1 - 5 ) ",
-            "Apakah Anda lebih suka bekerja dengan tangan? \n( 1 - 5 ) ",
-            "Apakah Anda tertarik pada seni dan kreativitas? \n( 1 - 5 ) ",
-            "Apakah Anda cenderung mengingat informasi dengan baik? \n( 1 - 5 ) ",
-            "Apakah Anda suka bekerja dengan data dan statistik? \n( 1 - 5 ) ",
-            "Apakah Anda tertarik pada pengembangan diri dan kesehatan? \n( 1 - 5 ) ",
-            "Apakah Anda suka mengajar dan berinteraksi dengan orang lain? \n( 1 - 5 ) ",
-            "Apakah Anda lebih suka menulis daripada berbicara di depan umum? \n( 1 - 5 ) ",
-            "Apakah Anda tertarik pada sejarah dan budaya? \n( 1 - 5 ) ",
-            "Apakah Anda cenderung terorganisir dan disiplin? \n( 1 - 5 ) ",
-            "Apakah Anda suka melakukan eksperimen dan riset? \n( 1 - 5 ) ",
-            "Apakah Anda tertarik pada masalah sosial dan keadilan? \n( 1 - 5 ) ",
-            "Apakah Anda suka berbicara dan memimpin kelompok? \n( 1 - 5 ) "
+            "Apakah Anda lebih suka belajar melalui interaksi dengan orang lain? \n(Y/T)",
+            "Apakah Anda lebih suka belajar melalui pengamatan dan pengalaman langsung? \n(Y/T)",
+            "Apakah Anda lebih suka belajar melalui membaca dan riset mandiri? (Y/T)",
+            "Apakah Anda lebih suka belajar dengan mendengarkan penjelasan dari orang lain? \n(Y/T)",
+            "Apakah Anda lebih suka belajar dengan mencoba dan berlatih secara langsung? \n(Y/T)",
+            "Apakah Anda lebih suka belajar dengan berdiskusi dan berbagi ide dengan orang lain? \n(Y/T)",
+            "Apakah Anda lebih suka belajar dengan membuat catatan dan merencanakan langkah-langkah? \n(Y/T)",
+            "Apakah Anda lebih suka belajar dengan mengikuti instruksi dan panduan yang jelas? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan aktivitas luar ruangan? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan membaca buku atau menonton film? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan bermain olahraga atau aktif fisik? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan berkreasi atau menggambar? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan berinteraksi sosial bersama teman? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan merenung atau berpikir secara pribadi? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan mengeksplorasi tempat baru? \n(Y/T)",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan menulis atau menyusun ide? \n(Y/T)"
         )
     }
 }

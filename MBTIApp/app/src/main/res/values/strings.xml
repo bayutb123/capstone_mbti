@@ -41,6 +41,7 @@
     <string name="dialog_register_complete_message">Akun berhasil terdaftar, ayo lanjut ke tes MBTI kamu!</string>
     <string name="dialog_register_complete_positive">Ayo!</string>
     <string name="dialog_invalid_register_password">Password tidak sama</string>
+    <string name="dialog_register_session_exists">"Proses pendaftaran akun sebelumnya belum diselesaikan \nNama : %1$s"</string>
     <string name="btn_next">Selanjutnya</string>
     <string name="btn_finish">Selesai</string>
     <string name="example_tv_question">Apakah Anda lebih suka membaca buku daripada menonton video</string>

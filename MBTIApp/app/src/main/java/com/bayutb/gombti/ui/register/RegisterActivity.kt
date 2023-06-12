@@ -14,6 +14,7 @@ import com.bayutb.gombti.R
 import com.bayutb.gombti.api.ApiConfig
 import com.bayutb.gombti.api.responses.RegisterResponse
 import com.bayutb.gombti.databinding.ActivityRegisterBinding
+import com.bayutb.gombti.model.RegisterSession
 import com.bayutb.gombti.ui.login.LoginActivity
 import com.bayutb.gombti.ui.mbti.MbtiActivity
 import retrofit2.Call
@@ -23,12 +24,25 @@ import retrofit2.Response
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var sessionManager: RegisterSessionManager
     private var userId = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        sessionManager = RegisterSessionManager(this@RegisterActivity)
+
+        if (sessionManager.loadSession() != null) {
+            registerAlert(
+                this@RegisterActivity,
+                getString(R.string.dialog_register_session_exists,
+                sessionManager.getUserName()),
+                sessionManager.loadSession()!!
+            )
+            Log.d("Session Exists : ", sessionManager.loadSession()!!)
+        }
 
         binding.apply {
             etBirthDate.showSoftInputOnFocus = false
@@ -89,7 +103,9 @@ class RegisterActivity : AppCompatActivity() {
                             if (response.isSuccessful) {
                                 if (response.body()?.data != null) {
                                     userId.add(0, response.body()!!.data.userId)
-                                    registerAlert(this@RegisterActivity, userId[0])
+                                    registerAlert(this@RegisterActivity, getString(R.string.dialog_register_complete_message), userId[0])
+                                    sessionManager.saveSession(userId[0], name)
+                                    Log.d("Session Saved : ", userId[0])
                                     Log.d("Success : ", response.body()!!.data.toString())
                                 }
                             } else {
@@ -128,9 +144,9 @@ private fun showAlert(context: Context, message : String) {
     dialog.show()
 }
 
-private fun registerAlert(context: Context, userId: String) {
+private fun registerAlert(context: Context, message: String, userId: String) {
     val alertDialog = AlertDialog.Builder(context)
-    alertDialog.setMessage(R.string.dialog_register_complete_message)
+    alertDialog.setMessage(message)
     alertDialog.setPositiveButton(context.getString(R.string.dialog_register_complete_positive)) { dialogInterface: DialogInterface, _: Int ->
         val intent = Intent(context, MbtiActivity::class.java)
         intent.putExtra("userId", userId)

@@ -1,12 +1,16 @@
 package com.bayutb.gombti.api
 
+import com.bayutb.gombti.api.request.MbtiRequest
 import com.bayutb.gombti.api.responses.LoginResponse
+import com.bayutb.gombti.api.responses.MbtiTestResponse
 import com.bayutb.gombti.api.responses.RegisterResponse
 import retrofit2.Call
-import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Headers
 import retrofit2.http.POST
+
 
 interface ApiService {
 
@@ -26,5 +30,9 @@ interface ApiService {
         @Field("gender") gender: String,
         @Field("birthdate") birthDate: String,
     ) : Call<RegisterResponse>
+
+    @POST("predict")
+    @Headers("Content-Type: application/json;charset=UTF-8")
+    fun mbtiTest(@Body body: MbtiRequest?): Call<MbtiTestResponse>
 
 }

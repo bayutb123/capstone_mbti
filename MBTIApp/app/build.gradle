@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'apiUrl', apiUrl
+        buildConfigField 'String', 'mbtiUrl', mbtiUrl
     }
 
     buildTypes {
