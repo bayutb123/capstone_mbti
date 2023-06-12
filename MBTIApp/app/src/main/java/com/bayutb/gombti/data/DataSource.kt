@@ -483,22 +483,22 @@ object DataSource {
 
     fun getQuestions(): List<String> {
         return listOf(
-            "Apakah Anda lebih suka belajar melalui interaksi dengan orang lain? \n(Y/T)",
-            "Apakah Anda lebih suka belajar melalui pengamatan dan pengalaman langsung? \n(Y/T)",
+            "Apakah Anda lebih suka belajar melalui interaksi dengan orang lain?",
+            "Apakah Anda lebih suka belajar melalui pengamatan dan pengalaman langsung?",
             "Apakah Anda lebih suka belajar melalui membaca dan riset mandiri? (Y/T)",
-            "Apakah Anda lebih suka belajar dengan mendengarkan penjelasan dari orang lain? \n(Y/T)",
-            "Apakah Anda lebih suka belajar dengan mencoba dan berlatih secara langsung? \n(Y/T)",
-            "Apakah Anda lebih suka belajar dengan berdiskusi dan berbagi ide dengan orang lain? \n(Y/T)",
-            "Apakah Anda lebih suka belajar dengan membuat catatan dan merencanakan langkah-langkah? \n(Y/T)",
-            "Apakah Anda lebih suka belajar dengan mengikuti instruksi dan panduan yang jelas? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan aktivitas luar ruangan? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan membaca buku atau menonton film? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan bermain olahraga atau aktif fisik? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan berkreasi atau menggambar? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan berinteraksi sosial bersama teman? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan merenung atau berpikir secara pribadi? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan mengeksplorasi tempat baru? \n(Y/T)",
-            "Apakah Anda lebih suka menghabiskan waktu luang dengan menulis atau menyusun ide? \n(Y/T)"
+            "Apakah Anda lebih suka belajar dengan mendengarkan penjelasan dari orang lain?",
+            "Apakah Anda lebih suka belajar dengan mencoba dan berlatih secara langsung?",
+            "Apakah Anda lebih suka belajar dengan berdiskusi dan berbagi ide dengan orang lain?",
+            "Apakah Anda lebih suka belajar dengan membuat catatan dan merencanakan langkah-langkah?",
+            "Apakah Anda lebih suka belajar dengan mengikuti instruksi dan panduan yang jelas?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan aktivitas luar ruangan?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan membaca buku atau menonton film?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan bermain olahraga atau aktif fisik?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan berkreasi atau menggambar?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan berinteraksi sosial bersama teman?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan merenung atau berpikir secara pribadi?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan mengeksplorasi tempat baru?",
+            "Apakah Anda lebih suka menghabiskan waktu luang dengan menulis atau menyusun ide?"
         )
     }
 }
