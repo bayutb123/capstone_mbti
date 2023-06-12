@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="Remove (Y/N) at questions">
+    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/model/RegisterSession.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/main/PersonalityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/main/PersonalityFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +134,35 @@
       <option name="project" value="LOCAL" />
       <updated>1686582256704</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fix login activity login button and RegisterActivity register button feedback when form is invalid">
+      <created>1686582953760</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686582953760</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update README.md">
+      <created>1686583015008</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686583015008</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add new Logo Resources">
+      <created>1686583040012</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686583040012</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add new Logo Resources">
+      <created>1686583088027</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686583088027</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,7 +188,9 @@
     <MESSAGE value="Fix Login and Register data delay onclick" />
     <MESSAGE value="Add MBTITest endpoint connection, change questions count, add register session to saved unfinished MBTI Test during register" />
     <MESSAGE value="Remove (Y/N) at questions" />
+    <MESSAGE value="Fix login activity login button and RegisterActivity register button feedback when form is invalid" />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="Add new Logo Resources" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new Logo Resources" />
   </component>
 </project>
