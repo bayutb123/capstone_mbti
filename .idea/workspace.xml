@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/data/DataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/data/DataSource.kt" afterDir="false" />
+    <list default="true" id="c31af89f-9025-4af2-aa9b-956fb329fe62" name="Changes" comment="Remove (Y/N) at questions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/model/RegisterSession.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/login/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/main/PersonalityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/main/PersonalityFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/java/com/bayutb/gombti/ui/register/RegisterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MBTIApp/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +121,28 @@
       <option name="project" value="LOCAL" />
       <updated>1686555844502</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Remove (Y/N) at questions">
+      <created>1686555977041</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686555977041</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Remove (Y/N) at questions">
+      <created>1686555988991</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686555988991</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update README.md">
+      <created>1686582256704</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686582256704</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +167,8 @@
     <MESSAGE value="Fix toast error, add exception when login endpoint return no logindata" />
     <MESSAGE value="Fix Login and Register data delay onclick" />
     <MESSAGE value="Add MBTITest endpoint connection, change questions count, add register session to saved unfinished MBTI Test during register" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add MBTITest endpoint connection, change questions count, add register session to saved unfinished MBTI Test during register" />
+    <MESSAGE value="Remove (Y/N) at questions" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
 </project>

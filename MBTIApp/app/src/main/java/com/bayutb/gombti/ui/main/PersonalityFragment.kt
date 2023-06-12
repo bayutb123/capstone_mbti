@@ -10,16 +10,6 @@ import com.bayutb.gombti.adapters.RecyclerAdapter
 import com.bayutb.gombti.data.DataSource
 import com.bayutb.gombti.databinding.FragmentPersonalityBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PersonalityFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PersonalityFragment : Fragment() {
 
     private lateinit var binding: FragmentPersonalityBinding

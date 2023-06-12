@@ -14,7 +14,7 @@ Project Name		: MBTI-EDU: A Personality Identification Application for Improving
 
 
 ### Changing API's URL
-Change API URL at **build.properties** 
+API's URL can be changed at**build.properties :** 
 ![App Screenshot](https://github.com/bayutb123/capstone_mbti/blob/main/Screenshots/change%20api%20url.png)
 
 ## Plugins
@@ -51,9 +51,8 @@ dependencies {
 }
 ```
 
-## Run Locally
-
-#### Clone the project
+```
+## Clone the project
 ```bash
   git clone https://github.com/bayutb123/capstone_mbti.git
 ```
@@ -65,6 +64,7 @@ dependencies {
 #### Build app to install it on physical device :
 - Click **Build** -> **Build Bundle(s) / APK(s)** -> **Build APK(s)**
 - Your exported ***app-debug.apk*** files will be on **capstone_mbti\MBTIApp\app\build\outputs\apk\debug**
+
 
 
 

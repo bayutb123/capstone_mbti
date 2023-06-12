@@ -14,7 +14,6 @@ import com.bayutb.gombti.R
 import com.bayutb.gombti.api.ApiConfig
 import com.bayutb.gombti.api.responses.RegisterResponse
 import com.bayutb.gombti.databinding.ActivityRegisterBinding
-import com.bayutb.gombti.model.RegisterSession
 import com.bayutb.gombti.ui.login.LoginActivity
 import com.bayutb.gombti.ui.mbti.MbtiActivity
 import retrofit2.Call
@@ -87,12 +86,9 @@ class RegisterActivity : AppCompatActivity() {
                 val birthDate = etBirthDate.text.toString()
 
                 if (name == "" || email == "" || password == "" || gender == "Unresolved" || birthDate == "") {
-                    showAlert(this@RegisterActivity, getString(R.string.dialog_invalid_register))
+                    Toast.makeText(this@RegisterActivity, getString(R.string.dialog_invalid_register), Toast.LENGTH_SHORT).show()
                 } else if  (password != rePassword) {
-                    showAlert(
-                        this@RegisterActivity,
-                        getString(R.string.dialog_invalid_register_password)
-                    )
+                    Toast.makeText(this@RegisterActivity, getString(R.string.dialog_invalid_register_password), Toast.LENGTH_SHORT).show()
                 } else {
                     isLoading(true)
                     ApiConfig.getInstance().registerUser(name, email, password, gender, birthDate).enqueue(object : Callback<RegisterResponse> {
@@ -132,18 +128,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 }
 
-
-
-private fun showAlert(context: Context, message : String) {
-    val alertDialog = AlertDialog.Builder(context)
-    alertDialog.setMessage(message)
-    alertDialog.setPositiveButton(context.getString(R.string.dialog_invalid_register_positive)) { dialogInterface: DialogInterface, _: Int ->
-        dialogInterface.dismiss()
-    }
-    val dialog = alertDialog.create()
-    dialog.show()
-}
-
 private fun registerAlert(context: Context, message: String, userId: String) {
     val alertDialog = AlertDialog.Builder(context)
     alertDialog.setMessage(message)
@@ -151,6 +135,7 @@ private fun registerAlert(context: Context, message: String, userId: String) {
         val intent = Intent(context, MbtiActivity::class.java)
         intent.putExtra("userId", userId)
         (context as RegisterActivity).startActivity(intent)
+        context.finish()
         dialogInterface.dismiss()
     }
 
