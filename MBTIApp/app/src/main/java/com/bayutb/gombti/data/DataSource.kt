@@ -485,7 +485,7 @@ object DataSource {
         return listOf(
             "Apakah Anda lebih suka belajar melalui interaksi dengan orang lain?",
             "Apakah Anda lebih suka belajar melalui pengamatan dan pengalaman langsung?",
-            "Apakah Anda lebih suka belajar melalui membaca dan riset mandiri? (Y/T)",
+            "Apakah Anda lebih suka belajar melalui membaca dan riset mandiri?",
             "Apakah Anda lebih suka belajar dengan mendengarkan penjelasan dari orang lain?",
             "Apakah Anda lebih suka belajar dengan mencoba dan berlatih secara langsung?",
             "Apakah Anda lebih suka belajar dengan berdiskusi dan berbagi ide dengan orang lain?",
