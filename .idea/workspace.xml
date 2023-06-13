@@ -162,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686583088027</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Change IP to Cloudflare Domain, connect mbti server">
+      <created>1686593864022</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686593864022</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,6 +198,7 @@
     <MESSAGE value="Fix login activity login button and RegisterActivity register button feedback when form is invalid" />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Add new Logo Resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new Logo Resources" />
+    <MESSAGE value="Change IP to Cloudflare Domain, connect mbti server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change IP to Cloudflare Domain, connect mbti server" />
   </component>
 </project>

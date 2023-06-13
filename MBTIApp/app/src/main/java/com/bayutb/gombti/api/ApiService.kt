@@ -4,6 +4,7 @@ import com.bayutb.gombti.api.request.MbtiRequest
 import com.bayutb.gombti.api.responses.LoginResponse
 import com.bayutb.gombti.api.responses.MbtiTestResponse
 import com.bayutb.gombti.api.responses.RegisterResponse
+import com.bayutb.gombti.api.responses.ResultMbtiResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -30,6 +31,13 @@ interface ApiService {
         @Field("gender") gender: String,
         @Field("birthdate") birthDate: String,
     ) : Call<RegisterResponse>
+
+    @FormUrlEncoded
+    @POST("result")
+    fun registerMbti(
+        @Field("userId") userId: String,
+        @Field("mbtiType") mbtiType: String
+    ) : Call<ResultMbtiResponse>
 
     @POST("predict")
     @Headers("Content-Type: application/json;charset=UTF-8")

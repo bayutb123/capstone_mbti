@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                                 call: Call<LoginResponse>,
                                 response: Response<LoginResponse>
                             ) {
-                                if (response.isSuccessful) {
+                                if (response.isSuccessful && response.body()?.error == false) {
                                     val loginResult = response.body()?.loginResult
                                     if (loginResult != null) {
                                         sessionManager.saveAuth(loginResult.userId.toString(), loginResult.name, loginResult.email, loginResult.mbti)
@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
                                         Intent(this@LoginActivity, MainActivity::class.java).also { startActivity(it) }
                                         finish()
                                     }
-                                } else if (response.body()!!.error) {
+                                } else  {
                                     Toast.makeText(this@LoginActivity, getString(R.string.toast_login_wrong_cridential), Toast.LENGTH_SHORT).show()
                                     Log.d("Success : ", "${response.body()}")
                                 }

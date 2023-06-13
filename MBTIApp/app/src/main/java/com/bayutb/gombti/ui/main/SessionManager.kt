@@ -7,7 +7,7 @@ import com.bayutb.gombti.R
 class SessionManager(context: Context) {
     private var prefs: SharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
 
-    fun saveAuth(userId: String, name: String, email: String, mbti: String) {
+    fun saveAuth(userId: String?, name: String, email: String, mbti: String?) {
         val editor = prefs.edit()
         editor.putString(USER_ID, userId)
         editor.putString(USER_NAME, name)

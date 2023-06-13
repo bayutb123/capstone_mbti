@@ -14,6 +14,7 @@ import com.bayutb.gombti.R
 import com.bayutb.gombti.api.ApiConfig
 import com.bayutb.gombti.api.request.MbtiRequest
 import com.bayutb.gombti.api.responses.MbtiTestResponse
+import com.bayutb.gombti.api.responses.ResultMbtiResponse
 import com.bayutb.gombti.data.DataSource
 import com.bayutb.gombti.databinding.ActivityMbtiBinding
 import com.bayutb.gombti.ui.login.LoginActivity
@@ -116,11 +117,10 @@ class MbtiActivity : AppCompatActivity() {
     }
 }
 
-private fun showAlert(context: Context, message :String, sessionManager: RegisterSessionManager) {
+private fun showAlert(context: Context, message :String) {
     val alertDialog = AlertDialog.Builder(context)
     alertDialog.setMessage(message)
     alertDialog.setPositiveButton(context.getString(R.string.dialog_mbti_positive)) { dialogInterface: DialogInterface, _: Int ->
-        sessionManager.clearSession()
         Intent(context, LoginActivity::class.java).also {
             context.startActivity(it)
         }
@@ -136,12 +136,36 @@ private fun showAlert2(context: Context, message :String, userId: String, mbtiTy
     val alertDialog = AlertDialog.Builder(context)
     alertDialog.setMessage(message)
     alertDialog.setPositiveButton(context.getString(R.string.dialog_mbti_positive)) { dialogInterface: DialogInterface, _: Int ->
-        showAlert(context,
-            "Tes MBTI selesai \nPost to /mbtiResult: \nuserId = $userId \nmbtiType = $mbtiType", sessionManager)
+        postMbti(context, userId, mbtiType, sessionManager)
+
         dialogInterface.dismiss()
         Log.d("Session Cleared: ", userId)
     }
 
     val dialog = alertDialog.create()
     dialog.show()
+}
+
+private fun postMbti(context: Context, userId: String, mbtiType: String, sessionManager: RegisterSessionManager) {
+    ApiConfig.getInstance().registerMbti(userId, mbtiType).enqueue(object : Callback<ResultMbtiResponse> {
+        override fun onResponse(
+            call: Call<ResultMbtiResponse>,
+            response: Response<ResultMbtiResponse>
+        ) {
+            if (response.isSuccessful) {
+                sessionManager.clearSession()
+                showAlert(context,
+                    context.getString(R.string.dialog_mbti_success))
+            } else {
+                showAlert(context,
+                    context.getString(R.string.dialog_mbti_failed))
+            }
+            Log.d("Success : ", response.body().toString())
+        }
+
+        override fun onFailure(call: Call<ResultMbtiResponse>, t: Throwable) {
+            Log.d("Failure :", t.message.toString())
+        }
+
+    })
 }

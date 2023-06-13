@@ -35,6 +35,8 @@
     <string name="dialog_logout_question">Kamu yakin ingin logout?</string>
     <string name="dialog_logout_positive">Logout</string>
     <string name="dialog_invalid_register">Silahkan isi semua kolom terlebih dahulu</string>
+    <string name="dialog_mbti_success">MBTI kamu sudah teridentifikasi.\nSekarang kamu bisa login untuk melihat rekomendasi belajar yang cocok untuk kamu.</string>
+    <string name="dialog_mbti_failed">Maaf..\nKami gagal menghubungkan kamu ke server :(</string>
     <string name="dialog_invalid_register_positive">Oke</string>
     <string name="dialog_mbti_positive">Ayo Login!</string>
     <string name="dialog_logout_negative">Batal</string>
