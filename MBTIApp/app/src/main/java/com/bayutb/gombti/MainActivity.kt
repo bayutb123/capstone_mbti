@@ -11,11 +11,14 @@ import com.bayutb.gombti.ui.main.AccountFragment
 import com.bayutb.gombti.ui.main.HomeFragment
 import com.bayutb.gombti.ui.main.PersonalityFragment
 import com.bayutb.gombti.ui.main.SessionManager
+import com.bayutb.gombti.ui.mbti.MbtiActivity
+import com.bayutb.gombti.ui.register.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var userId: String?= null
+    private var mbtiType: String ?= null
     private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         sessionManager = SessionManager(this@MainActivity)
         userId = sessionManager.checkAuth()
-        sessionCheck(userId)
+        mbtiType = sessionManager.getMbti()
+        sessionCheck(userId, mbtiType)
 
         val loginSession = LoginSession(
             userId ?: "",
@@ -78,11 +82,15 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun sessionCheck(userId: String?) {
+    private fun sessionCheck(userId: String?, mbtiType : String?) {
         if (userId == null) {
             Intent(this@MainActivity, LoginActivity::class.java).also {
                 startActivity(it)
             }
+            finish()
+        } else if (mbtiType == null) {
+            val intent = Intent(this@MainActivity, RegisterActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
